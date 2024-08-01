@@ -66,30 +66,30 @@
                             
                     <label class="form-group" for="gender">Gender</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gender" value="male">
+                            <input class="form-check-input" type="radio" name="gender" value="Male">
                             <label class="form-check-label">Male</label>
                         </div>
                         
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gender" value="female">
+                            <input class="form-check-input" type="radio" name="gender" value="Female">
                             <label class="form-check-label">Female</label>
                         </div>
 
                     <label class="form-group" for="skillset">Skillset</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="skillset[]" value="c++">
+                            <input class="form-check-input" type="checkbox" name="skillset" value="C++">
                             <label class="form-check-label">C++</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="skillset[]" value="python">
+                            <input class="form-check-input" type="checkbox" name="skillset" value="Python">
                             <label class="form-check-label">Python</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="skillset[]" value="Java">
+                            <input class="form-check-input" type="checkbox" name="skillset" value="Java">
                             <label class="form-check-label">Java</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="skillset[]" value="HTML">
+                            <input class="form-check-input" type="checkbox" name="skillset" value="HTML">
                             <label class="form-check-label">HTML</label>
                         </div>
                         
@@ -124,14 +124,21 @@
                     document.getElementById("email").innerHTML = myformdata.email.value;
                     document.getElementById("dob").innerHTML = myformdata.dob.value;
                     document.getElementById("gender").innerHTML = myformdata.gender.value;
-                    document.getElementById("skillset").innerHTML = myformdata.skillset.value;
+                    //document.getElementById("skillset").innerHTML = myformdata.skillset.value;
+                    
                     let skillCheck = document.getElementsByName("skillset");
+                    //console.log(skillCheck)
+                    var textValue='';
                     for(var i=0; i<skillCheck.length; i++)
                     {
-                        if(skillCheck[i].checked) 
-                            document.getElementById("skillset").innerHTML += skillCheck[i].value + ", ";
+                        if(skillCheck[i].checked) {
+                          textValue += skillCheck[i].value + ", ";
+                       
                     }
                         
+                }
+                console.log(textValue)
+                document.getElementById("skillset").innerHTML =textValue
                     document.getElementById("qualification").innerHTML = myformdata.qualification.value;
                     document.getElementById("address").innerHTML = myformdata.address.value;
 
@@ -169,7 +176,7 @@
                 </tr>
                 <tr>
                     <td>Skillset</td>
-                    <td id="skillCheck"></td>
+                    <td id="skillset"></td>
                 </tr>
                 <tr>
                     <td>Qualification</td>
