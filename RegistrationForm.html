@@ -1,0 +1,188 @@
+<--Registration Form using HTML and Bootstrap-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <title>Registration Form</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row bg-info">Registration Form</div>
+        <div class="row">
+            <form class="form-group" onsubmit="submitData()" id="regForm">
+                <label class="form-group" for="fname">First Name</label>
+                <input type="text"
+                    name="fname"
+                    class="form-control"
+                    placeholder="Enter First name here..."
+                    min="3">
+                    
+                <label class="form-group" for="lname">Last Name</label>
+                <input type="text"
+                    name="lname"
+                    class="form-control"
+                    placeholder="Enter Last name here..."
+                    min="3">
+
+                <label class="form-group" for="uname">username</label>
+                <input type="text"
+                    name="uname"
+                    class="form-control"
+                    placeholder="Enter Username here..."
+                    min="3">
+
+                <label class="form-group" for="password">Password</label>
+                <input type="password"
+                    name="password"
+                    class="form-control"
+                    placeholder="Enter Password here...">
+
+                <label class="form-group" for="confpass">Confirm Password</label>
+                <input type="password"
+                    name="confpass"
+                    class="form-control"
+                    placeholder="Enter Confirmed Password here...">
+
+                    <label class="form-group" for="mobile">Mobile Number</label>
+                    <input type="number"
+                        name="mobile"
+                        class="form-control"
+                        placeholder="Enter Mobile Number here..."
+                        size="10">
+                        
+                    <label class="form-group" for="email">Email</label>
+                    <input type="email"
+                        name="email"
+                        class="form-control"
+                        placeholder="Enter Email here...">
+
+                    <label class="form-group" for="dob">Date of Birth</label>
+                    <input type="date"
+                        name="dob"
+                        class="form-control">
+                            
+                    <label class="form-group" for="gender">Gender</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" value="male">
+                            <label class="form-check-label">Male</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" value="female">
+                            <label class="form-check-label">Female</label>
+                        </div>
+
+                    <label class="form-group" for="skillset">Skillset</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="skillset[]" value="c++">
+                            <label class="form-check-label">C++</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="skillset[]" value="python">
+                            <label class="form-check-label">Python</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="skillset[]" value="Java">
+                            <label class="form-check-label">Java</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="skillset[]" value="HTML">
+                            <label class="form-check-label">HTML</label>
+                        </div>
+                        
+                    <label class="form-group" for="qualification">Qualification</label>
+                        <select class="form-control" name="qualification">
+                            <option value="">Select Qualification</option>
+                            <option value="High School">High School</option>
+                            <option value="Bachelor's Degree">Bachelor's Degree</option>
+                            <option value="Master's Degree">Master's Degree</option>
+                            <option value="PhD">PhD</option>
+                        </select>
+                        
+                    <label class="form-group" for="address">Address</label>
+                        <textarea class="form-control" name="address"></textarea>
+                        
+                        <label class="form-group" for="photo">Upload Resume</label>
+                        <input type="file" class="form-control" name="resume">
+                        
+                    <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+                    <button type="reset" class="btn btn-dark" value="Reset">Reset</button>
+            </form>
+
+            <script>
+                
+                const submitData=() =>{
+                    event.preventDefault()
+                    let myformdata = document.getElementById('regForm');
+                    document.getElementById("fname").innerHTML = myformdata.fname.value;
+                    document.getElementById("lname").innerHTML = myformdata.lname.value;
+                    document.getElementById("uname").innerHTML = myformdata.uname.value;
+                    document.getElementById("mobile").innerHTML = myformdata.mobile.value;
+                    document.getElementById("email").innerHTML = myformdata.email.value;
+                    document.getElementById("dob").innerHTML = myformdata.dob.value;
+                    document.getElementById("gender").innerHTML = myformdata.gender.value;
+                    document.getElementById("skillset").innerHTML = myformdata.skillset.value;
+                    let skillCheck = document.getElementsByName("skillset");
+                    for(var i=0; i<skillCheck.length; i++)
+                    {
+                        if(skillCheck[i].checked) 
+                            document.getElementById("skillset").innerHTML += skillCheck[i].value + ", ";
+                    }
+                        
+                    document.getElementById("qualification").innerHTML = myformdata.qualification.value;
+                    document.getElementById("address").innerHTML = myformdata.address.value;
+
+                }
+
+            </script>
+            <table border ="3px">
+                <tr>
+                    <td>First Name</td>
+                    <td id="fname"></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td id="lname"></td>
+                </tr>
+                <tr>
+                    <td>Username</td>
+                    <td id="uname"></td>
+                </tr>
+                <tr>
+                    <td>Mobile No.</td>
+                    <td id="mobile"></td>
+                </tr>
+                <tr>
+                    <td>Email ID</td>
+                    <td id="email"></td>
+                </tr>
+                <tr>
+                    <td>Date of birth</td>
+                    <td id="dob"></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td id="gender"></td>
+                </tr>
+                <tr>
+                    <td>Skillset</td>
+                    <td id="skillCheck"></td>
+                </tr>
+                <tr>
+                    <td>Qualification</td>
+                    <td id="qualification"></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td id="address"></td>
+                </tr>
+            </table>
+        </div>
+        
+
+    </div>
+</body>
+</html>

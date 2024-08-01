@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id ="b">
+    <p id = 'p1'>My name is: </p>
+    Name: <input type="text", name="name", id="id1">
+    <button onclick="setName()">Submit</button>
+
+    <p id = 'p2'>My colour is: </p>
+    Name: <input type="text", name="colorname", id="id2">
+    <button onclick="setColor()">Submit</button>
+
+    <script>
+        function setName() {
+            let name = document.getElementById("id1").value;
+            document.getElementById("p1").innerHTML=name;
+        }
+
+        function setColor() {
+            let colorname = document.getElementById("id2").value;
+            document.getElementById("b").style.background = colorname;
+            document.getElementById("p1").style.color = "white"; // This will change the paragraph colour
+        }
+    </script>
+</body>
+</html>

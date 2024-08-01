@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="cls">Hello</h1>
+    <h2 class="cls">How are you?</h2>
+    <h3 class="cls">This is JavaScript</h3>
+    <h1 class="cls2">World</h1>
+
+    <script>
+        // let hText = document.getElementsByClassName('cls');
+        // console.log(hText[0].innerHTML + ' ' + hText[1].innerHTML + ' ' + hText[2].innerHTML); // This will only display the ones having classname as cls
+        
+        let tagText = document.getElementsByTagName('h1')
+        console.log(tagText[0].innerHTML + ' ' + tagText[1].innerHTML); //this will only display the ones having h1 tag.
+
+    </script>
+</body>
+</html>
